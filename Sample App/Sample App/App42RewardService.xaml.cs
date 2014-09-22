@@ -75,6 +75,14 @@ namespace Sample_App
         {
             rewardName = "Golden Reward" + DateTime.Now.Millisecond;
             rewardService = App42API.BuildRewardService();
+            if (Constant.sessionId != null && Constant.sessionId != "")
+            {
+                rewardService.SetSessionId(Constant.sessionId);
+            }
+            if (Constant.adminKey != null && Constant.adminKey != "")
+            {
+                rewardService.SetAdminKey(Constant.adminKey);
+            }
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
