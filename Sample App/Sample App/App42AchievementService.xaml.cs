@@ -50,7 +50,7 @@ namespace Sample_App
         public App42AchievementService()
         {
             achievementService = App42API.BuildAchievementService();
-            achivementName = "TestAchievement" + DateTime.UtcNow;
+            achivementName = "TestAchievement" + DateTime.Now.Millisecond;
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
@@ -64,6 +64,11 @@ namespace Sample_App
                     Achievement achievement = (Achievement)response;
                     AchiementResponseTBL.Text = "Achievement Response is:  " + achievement;
 
+                }
+                 else
+                {
+                    IList<Achievement> achievementList = (List<Achievement>)response;
+                    AchiementResponseTBL.Text = "Achievement Response is:  " + achievementList[0].GetStrResponse();
                 }
             });
 
