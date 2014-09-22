@@ -73,7 +73,7 @@ namespace Sample_App
         }
         public App42RewardService()
         {
-            rewardName = "Golden Reward" + DateTime.UtcNow;
+            rewardName = "Golden Reward" + DateTime.Now.Millisecond;
             rewardService = App42API.BuildRewardService();
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
