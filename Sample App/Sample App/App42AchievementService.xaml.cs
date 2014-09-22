@@ -50,6 +50,14 @@ namespace Sample_App
         public App42AchievementService()
         {
             achievementService = App42API.BuildAchievementService();
+            if (Constant.sessionId != null && Constant.sessionId != "")
+            {
+                achievementService.SetSessionId(Constant.sessionId);
+            }
+            if (Constant.adminKey != null && Constant.adminKey != "")
+            {
+                achievementService.SetAdminKey(Constant.adminKey);
+            }
             achivementName = "TestAchievement" + DateTime.Now.Millisecond;
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
