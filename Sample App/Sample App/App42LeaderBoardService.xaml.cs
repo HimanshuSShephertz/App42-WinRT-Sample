@@ -55,6 +55,16 @@ namespace Sample_App
             gameName = Constant.gameName;
             gameService = App42API.BuildGameService();
             leaderBoardService = App42API.BuildScoreBoardService();
+            if (Constant.sessionId != null && Constant.sessionId != "")
+            {
+                gameService.SetSessionId(Constant.sessionId);
+                leaderBoardService.SetSessionId(Constant.sessionId);
+            }
+            if (Constant.adminKey != null && Constant.adminKey != "")
+            {
+                gameService.SetAdminKey(Constant.adminKey);
+                leaderBoardService.SetAdminKey(Constant.adminKey);
+            }
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
