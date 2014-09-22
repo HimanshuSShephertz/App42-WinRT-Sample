@@ -15,7 +15,7 @@ namespace Sample_App
         public static string dbName = "test";
         public static string collectionName = "WindowStoreApps";
         public static string docId = "";
-        public static string gameName = "TestGame" + DateTime.Now.Millisecond;
+        public static string gameName = "WindowStoreAppsGame";
         public static string userName = "DemoUser" + DateTime.Now.Millisecond;
         public static string scoreId = "";
     }
