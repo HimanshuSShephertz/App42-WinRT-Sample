@@ -41,6 +41,10 @@ namespace Sample_App
                 if (response is User)
                 {
                     User user = (User)response;
+                    if (user.GetSessionId() != null)
+                    {
+                        Constant.sessionId = user.GetSessionId();
+                    }
                     UserResponseTBL.Text = "User Response is : " + user;
                 }
                 else
@@ -77,6 +81,14 @@ namespace Sample_App
         public App42UserService()
         {
             userService = App42API.BuildUserService();
+            if (Constant.sessionId != null && Constant.sessionId != "")
+            {
+                userService.SetSessionId(Constant.sessionId);
+            }
+            if (Constant.adminKey != null && Constant.adminKey != "")
+            {
+                userService.SetAdminKey(Constant.adminKey);
+            }
             userName = Constant.userName;
             password = "DemoUser";
             this.InitializeComponent();
