@@ -73,6 +73,15 @@ namespace Sample_App
         public App42StorageService()
         {
             storageService = App42API.BuildStorageService();
+            
+            if (Constant.sessionId != null && Constant.sessionId != "")
+            {
+                storageService.SetSessionId(Constant.sessionId);
+            }
+            if (Constant.adminKey != null && Constant.adminKey != "")
+            {
+                storageService.SetAdminKey(Constant.adminKey);
+            }
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
